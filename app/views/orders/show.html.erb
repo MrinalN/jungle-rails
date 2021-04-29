@@ -6,8 +6,46 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <p>Your order will be delivered to: <%= @order.email %></p>
+
+      <% @order.line_items.each do |line_item| %>
+        <% product = Product.find(line_item[:product_id]) %>
+      <table class="table table-bordered">
+          <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+        <tr>
+            <td>
+              <%= image_tag product.image.tiny %>
+            </td>
+            <td>
+              <h4><%= product.name %></h4>
+              <br>
+              <p><%= product.description %></p>
+            </td>
+            <td>
+              <%= humanized_money_with_symbol product.price %>
+            </td>
+            <td>
+              <%= line_item.quantity %>
+            </td>
+            <td>
+              <%= humanized_money_with_symbol product.price * line_item.quantity%>
+            </td>
+          </tr>
+          </table>
+      <% end %>
+       <p> Your credit card will be charged a total of <%= humanized_money_with_symbol @order.total_cents / 100.0 %> </p>
+
   </div>
 
+  
+   
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
