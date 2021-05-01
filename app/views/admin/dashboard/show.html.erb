@@ -1,6 +1,26 @@
-<h1> Admin Dashbord </h1>
-<br>
-<h3>Current Stats</h3>
-<br>
-<p> Total count of categories: <%= @category_count %>
-<p> Total count of products: <%= @products_count %>
+<section class="admin-products-index">
+
+  <header class="page-header">
+    <h1>Admin Dashbord &raquo; Current Stats</h1>
+  </header>
+
+  <div class="panel panel-default products">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Total Count of Categories:</th>
+          <th><%= @category_count %></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Total Count of Products:</th>
+          <th><%= @products_count %></th>
+          <th></th>
+        </tr>
+      </thead>
+    </table>
+
+  </div>
+
+</section>
