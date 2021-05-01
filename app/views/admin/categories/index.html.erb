@@ -18,17 +18,7 @@
         </tr>
       </thead>
       <tbody>
-    <%@categories.each do |category|%>
-    <tr>
-    <td>
-    <%=category.name%>
-    </td>
-    <td>
-    You want to add num of items in categories here
-    </td>
-     </tr>
-    <%end%>
-   
+          <%= render @categories %>
       </tbody>
     </table>
 
