@@ -49,6 +49,13 @@ RSpec.describe User, type: :model do
       expect(auth_user.email).to eq(@user.email)
     end
 
+    it ".authenticate_with_credentials succeeds despite leading and trailing space in email input" do
+      @user = User.create(first_name:'Corgi', last_name: 'Dog', email: 'dog@gmail.ca', password: 'password', password_confirmation: 'password')
+      auth_user = User.authenticate_with_credentials('  dog@gmail.ca  ', 'password')
+      expect(@user).to be_valid
+      expect(auth_user.email).to eq('dog@gmail.ca')
+    end
+
   end
 
 end
