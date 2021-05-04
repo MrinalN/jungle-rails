@@ -17,8 +17,6 @@ RSpec.describe User, type: :model do
     it "does not duplicate a pre-existing email registered" do
       @user1 = User.create(first_name:'Paul', last_name: 'Doppleganger', email: 'paul@ball.ca', password: 'password', password_confirmation: 'password')
       @user2 = User.create(first_name:'Paul', last_name: 'Ball', email: 'paul@ball.ca', password: 'password', password_confirmation: 'password')
-      puts "ERROR MESSAGE: #{@user1.errors.full_messages}"
-      puts "ERROR MESSAGE: #{@user2.errors.full_messages}"
       expect(@user2).to_not be_valid
       expect(@user2.errors.full_messages).to include("Email has already been taken")
     end
@@ -27,6 +25,12 @@ RSpec.describe User, type: :model do
       @user = User.create(first_name:'Coco', last_name: 'Larouse', email: 'COCO@gmail.ca', password: 'password', password_confirmation: 'password')
       expect(@user).to be_valid
       expect(@user.email).to match(/coco@gmail.ca/i)
+    end
+
+    it "does not accept passwords less than minimum length of 6" do
+      @user = User.create(first_name:'Yellow', last_name: 'Truck', email: 'truck@gmail.ca', password: 'what', password_confirmation: 'what')
+      expect(@user).to_not be_valid
+      expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
     end
 
   end
