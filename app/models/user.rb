@@ -2,7 +2,15 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  def authenticate_with_credentials
+  def self.authenticate_with_credentials(param_email, param_password)
+    user = User.where(email: param_email).first
+    if user
+      user && user.authenticate(param_password) 
+    else
+      nil
+    end
+    #if email matches something in db, check that db email password == password (implicit true)
+    #else
   end
 
   validates :first_name, presence: true

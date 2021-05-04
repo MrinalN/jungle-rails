@@ -37,6 +37,18 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate_with_credentials' do
     # examples for this class method here
+
+    it ".authenticate_with_credentials fails if email and password input do not match db" do
+      @user = User.create(first_name:'Chica', last_name: 'Bonita', email: 'chica@gmail.ca', password: 'cherryblossom', password_confirmation: 'cherryblossom')
+      expect(User.authenticate_with_credentials('something', 'not right')).to be_nil
+    end
+
+    it ".authenticate_with_credentials succeeds if input email and matches one in db" do
+      @user = User.create(first_name:'Carly', last_name: 'Mcmillan', email: 'carly@gmail.ca', password: 'cherryblossom', password_confirmation: 'cherryblossom')
+      auth_user = User.authenticate_with_credentials('carly@gmail.ca', 'cherryblossom')
+      expect(auth_user.email).to eq(@user.email)
+    end
+
   end
 
 end
