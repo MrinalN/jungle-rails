@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def self.authenticate_with_credentials(param_email, param_password)
-    email_sans_whitespace = param_email.strip
+    email_sans_whitespace = param_email.strip.downcase
     user = User.where(email: email_sans_whitespace).first
     if user
       user && user.authenticate(param_password) 

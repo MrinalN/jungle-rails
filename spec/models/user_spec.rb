@@ -56,6 +56,12 @@ RSpec.describe User, type: :model do
       expect(auth_user.email).to eq('dog@gmail.ca')
     end
 
+    it ".authenticate_with_credentials succeeds despite mixed case input" do
+      @user = User.create(first_name:'Example', last_name: 'Person', email: 'example@domain.com', password: 'password', password_confirmation: 'password')
+      auth_user = User.authenticate_with_credentials('EXAMPLe@DOMAIN.CoM', 'password')
+      expect(@user).to be_valid
+      expect(auth_user.email).to eq('example@domain.com')
+    end
   end
 
 end
