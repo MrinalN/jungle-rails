@@ -30,11 +30,9 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 ## Screenshots
 ⭐  Listings display on main page
 ![](https://github.com/MrinalN/Jungle/blob/master/docs/jungle-main-page.gif)
-
-<br/>
+##
 ⭐  Add new product via Admin Dashboard
 ![](https://github.com/MrinalN/Jungle/blob/master/docs/jungle-add-product.gif)
-
-<br/>
+##
 ⭐   Load cart and process payments using Stripe
 ![](https://github.com/MrinalN/Jungle/blob/master/docs/jungle-cart-pay.gif)
