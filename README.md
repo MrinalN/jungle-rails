@@ -3,7 +3,7 @@
 <h1>
 Jungle
 </h1>
-<img src="docs/rubyrails.png" width=50 alt="rubyrails.png" />
+<img src="docs/rubyrails.png" width=100 alt="rubyrails.png" />
 <p>A mini Rails e-commerce application
 </p>
 
