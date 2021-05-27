@@ -28,13 +28,13 @@ Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Screenshots
-⭐ Listings display on main page
+⭐  Listings display on main page
 ![](https://github.com/MrinalN/Jungle/blob/master/docs/jungle-main-page.gif)
 
-
-⭐ Add new product via Admin Dashboard
+<br/>
+⭐  Add new product via Admin Dashboard
 ![](https://github.com/MrinalN/Jungle/blob/master/docs/jungle-add-product.gif)
 
-
-⭐ Load cart and process payments using Stripe
+<br/>
+⭐   Load cart and process payments using Stripe
 ![](https://github.com/MrinalN/Jungle/blob/master/docs/jungle-cart-pay.gif)
